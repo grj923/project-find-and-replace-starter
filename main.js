@@ -22,31 +22,27 @@ function getCellElements(currentRowElement) {
 replaceAllButton.addEventListener("click", function () {
   find = findInput.value;
   replaceWith = replaceInput.value;
-  if (finalRowElement.includes("find")) {
-    console.log("Found it");
-  } else {
-    console.log("Not found");
-  }
   //   console.log(findInput.value);
   //   console.log(replaceInput.value);
-  console.log(find + " Find This Name or Company");
-  console.log(replaceWith + " Replace With This name or Company");
-});
-
-for (i = 0; i < rowElements.length; i++) {
-  //   currentRowElement = rowElements[i];
-  newRowElement = getCellElements(rowElements[i]);
-  //   console.log(rowElements[i].innerText);
-  //   console.log(newRowElement);
-  //   console.log(newRowElement);
-  //   console.log(newRowElement);
-  for (j = 0; j < newRowElement.length; j++) {
-    finalRowElement = newRowElement[j].innerHTML;
-    // console.log(finalRowElement.includes("find"));
-    console.log(finalRowElement);
-    // console.log(newRowElement.includes(find));
+  //   console.log(find + " Find This Name or Company");
+  //   console.log(replaceWith + " Replace With This name or Company");
+  for (i = 0; i < rowElements.length; i++) {
+    //   currentRowElement = rowElements[i];
+    newRowElement = getCellElements(rowElements[i]);
+    //   console.log(rowElements[i].innerText);
+    for (j = 0; j < newRowElement.length; j++) {
+      finalRowElement = newRowElement[j].innerHTML;
+      if (finalRowElement.includes(find)) {
+        console.log(finalRowElement);
+        finalRowElement = finalRowElement.replace(find, replaceWith);
+        newRowElement[j].innerHTML = finalRowElement;
+        console.log("found it");
+        console.log(finalRowElement);
+        // console.log(replaceWith);
+      }
+    }
   }
-}
+});
 
 // YOUR CODE GOES HERE
 
